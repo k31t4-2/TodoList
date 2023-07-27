@@ -12,6 +12,7 @@ const InComplete = (props) => {
     setInCompleteTodos,
     CompleteTodos,
     setCompleteTodos,
+    setEditIndex
   } = props
 
   // 完了ボタン
@@ -30,10 +31,10 @@ const InComplete = (props) => {
 
   // 編集ボタン
   const onClickEditTodo = (todo,index) => {
-    console.log(index);
-    console.log(InCompleteTodos[index]);
     setTodoEdit(true)
     setNewTitle(todo)
+     //押されたtodoのindexが入ってくる
+    setEditIndex(index)
   }
 
   return (

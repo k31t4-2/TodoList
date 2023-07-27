@@ -17,6 +17,7 @@ const Input = (props) => {
     setInCompleteTodos,
     newTitle,
     setNewTitle,
+    editIndex,
   } = props
 
   // 追加ボタン
@@ -29,18 +30,31 @@ const Input = (props) => {
 
   // 再投稿ボタン
   const onClickRepostTodo = () => {
-    if (newTitle === "") return; //toast使用する
+    if (newTitle === "") return;
+    // 1.新しいInComp配列を作成
+    const newInCompleteTodo = [...InCompleteTodos];
+    // 2.配列の中からindex番目のtodoをnewTitleに置き換える
+    newInCompleteTodo[editIndex] = newTitle;
+    // 3.配列をStateでsetしなおす
+    setInCompleteTodos(newInCompleteTodo);
 
-    setInCompleteTodos(newTodos);
+
+    // この文では、新しく打ったtodoを`setNewTitle`に設定しているだけ。
+    setNewTitle(newTitle)
     // 再投稿したら以下を初期化する
     setNewTitle("")
-    setEditingTodoID("")
+    setTodoEdit(false)
   }
 
   // キャンセルボタン
   const onClickCancelEdit = () => {
     setTodoEdit(false)
     setNewTitle("")
+  }
+
+  // 新しいtodoをonChangeで管理
+  const onChangeNewTitle = (e) => {
+    setNewTitle(e.target.value)
   }
 
   return (
@@ -50,15 +64,18 @@ const Input = (props) => {
             <input
               disabled={disabled}
               value={newTitle}
-              onChange={(e) => setNewTitle(e.target.value)}
+              onChange={(e) => onChangeNewTitle(e)}
               type="text"
             />
-            {console.log(newTitle)}
             <button
               onClick={() => onClickRepostTodo()}
             >再投稿
             </button>
-            <button onClick={onClickCancelEdit}>キャンセル</button>
+
+            <button
+             onClick={onClickCancelEdit}
+            >キャンセル
+            </button>
           </div>
           )
           :

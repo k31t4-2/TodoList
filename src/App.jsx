@@ -1,6 +1,6 @@
 // cspell:ignore todos
 /* eslint-disable no-unused-vars */
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 
 import Complete from './Components/Complete'
@@ -8,8 +8,6 @@ import InComplete from './Components/InComplete'
 import Input from './Components/Input'
 
 function App() {
-
-
 
   const validation = {
     color: "red",
@@ -21,27 +19,18 @@ function App() {
 
   // input
   const [todos, setTodos] = useState("")
+
   // InCompleteTodo
-  const [InCompleteTodos, setInCompleteTodos]
-    = useState(JSON.parse(localStorage.getItem("todo")))
+  const [InCompleteTodos, setInCompleteTodos] = useState([])
+
   // CompleteTodo
-  const [CompleteTodos, setCompleteTodos]
-    = useState(JSON.parse(localStorage.getItem("todos")))
+  const [CompleteTodos, setCompleteTodos] = useState([])
   // 編集機能
   const [todoEdit, setTodoEdit] = useState(false)
   const [newTitle, setNewTitle] = useState("")
+  const [editIndex, setEditIndex] = useState("")
 
-  // タスクの内容をlocalStorageで管理
-  useEffect(() => {
-    // ローカルストレージに保存
-    localStorage.setItem("todo",JSON.stringify(InCompleteTodos))
-  }, [InCompleteTodos])
-
-  useEffect(() => {
-    localStorage.setItem("todos",JSON.stringify(CompleteTodos))
-  },[CompleteTodos])
-
-    const validationTerms = InCompleteTodos.length >= 5
+  const validationTerms = InCompleteTodos.length >= 5
 
   return (
     <>
@@ -55,6 +44,7 @@ function App() {
         setTodoEdit={setTodoEdit}
         newTitle={newTitle}
         setNewTitle={setNewTitle}
+        editIndex={editIndex}
       />
 
       {/* バリデーションメッセージ */}
@@ -71,6 +61,7 @@ function App() {
         setTodoEdit={setTodoEdit}
         todoEdit={todoEdit}
         setNewTitle={setNewTitle}
+        setEditIndex={setEditIndex}
       />
 
       <Complete
