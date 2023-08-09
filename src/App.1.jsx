@@ -1,24 +1,19 @@
-// cspell:ignore todos
-/* eslint-disable no-unused-vars */
 import { useState } from 'react'
-import './App.css'
-
 import Complete from './Components/Complete'
 import InComplete from './Components/InComplete'
 import Input from './Components/Input'
 
 function App() {
-
   const validation = {
-    color: "red",
-    fontSize: "20px",
-    fontWeight: "bold",
-    textAlign: "center",
-    margin:"5px 0"
+    color: 'red',
+    fontSize: '20px',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    margin: '5px 0',
   }
 
-  // todos
-  const [todos, setTodos] = useState("")
+  // input
+  const [todos, setTodos] = useState('')
 
   // InCompleteTodo
   const [InCompleteTodos, setInCompleteTodos] = useState([])
@@ -27,8 +22,8 @@ function App() {
   const [CompleteTodos, setCompleteTodos] = useState([])
   // 編集機能
   const [todoEdit, setTodoEdit] = useState(false)
-  const [newTitle, setNewTitle] = useState("")
-  const [editIndex, setEditIndex] = useState("")
+  const [newTitle, setNewTitle] = useState('')
+  const [editIndex, setEditIndex] = useState('')
 
   const validationTerms = InCompleteTodos.length >= 5
 
@@ -48,10 +43,7 @@ function App() {
       />
 
       {/* バリデーションメッセージ */}
-      {validationTerms
-        &&
-      <p style={validation}>タスクを消化してください</p>
-      }
+      {validationTerms && <p style={validation}>タスクを消化してください</p>}
 
       <InComplete
         InCompleteTodos={InCompleteTodos}
@@ -73,5 +65,4 @@ function App() {
     </>
   )
 }
-
 export default App

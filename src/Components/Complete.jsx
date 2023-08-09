@@ -13,7 +13,7 @@ const Complete = (props) => {
     newCompleteTodos.splice(index, 1)
     setCompleteTodos(newCompleteTodos)
 
-    // todoをInCompleteに戻す
+    // todoをnewInCompleteに戻す
     const newInCompleteTodos = [...InCompleteTodos,CompleteTodos[index]]
     setInCompleteTodos(newInCompleteTodos)
   }
