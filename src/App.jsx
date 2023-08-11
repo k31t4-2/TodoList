@@ -1,14 +1,11 @@
 // cspell:ignore todos
 /* eslint-disable no-unused-vars */
 import { useState } from 'react'
-import './App.css'
-
 import Complete from './Components/Complete'
 import InComplete from './Components/InComplete'
 import Input from './Components/Input'
 
 function App() {
-
   const validation = {
     color: "red",
     fontSize: "20px",
@@ -17,7 +14,7 @@ function App() {
     margin:"5px 0"
   }
 
-  // todos
+  // input
   const [todos, setTodos] = useState("")
 
   // InCompleteTodo
