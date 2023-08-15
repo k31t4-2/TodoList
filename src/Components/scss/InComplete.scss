@@ -1,0 +1,16 @@
+.inComplete{
+  background-color: #81d2f2;
+  min-height: 300px;
+
+  &__container{
+
+    div{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+

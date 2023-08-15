@@ -1,0 +1,15 @@
+.complete {
+  background-color: #52c7f5;
+  min-height: 300px;
+
+  &__container {
+
+    div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 5px;
+    }
+  }
+}
+
